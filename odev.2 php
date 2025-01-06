@@ -1,0 +1,29 @@
+<?php
+function temizleVeRastgeleDiziOlustur($dizi, $adet) {
+    // Boş ve null değerleri temizle
+    $temizDizi = array_filter($dizi, function($eleman) {
+        return !empty($eleman);
+    });
+
+    // İstenilen sayıda rastgele elemanı seç
+    $rastgeleAnahtarlar = array_rand($temizDizi, $adet);
+    
+    // Eğer sadece 1 eleman seçilirse, array_rand int döndürür, bu yüzden diziye çeviriyoruz
+    if (!is_array($rastgeleAnahtarlar)) {
+        $rastgeleAnahtarlar = [$rastgeleAnahtarlar];
+    }
+
+    // Rastgele seçilen anahtarlara göre yeni bir dizi oluştur
+    return array_map(function($anahtar) use ($temizDizi) {
+        return $temizDizi[$anahtar];
+    }, $rastgeleAnahtarlar);
+}
+
+// Test
+$planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "", "", NULL];
+
+print_r(temizleVeRastgeleDiziOlustur($planets, 2));
+print_r(temizleVeRastgeleDiziOlustur($planets, 3));
+print_r(temizleVeRastgeleDiziOlustur($planets, 2));
+print_r(temizleVeRastgeleDiziOlustur($planets, 4));
+print_r(temizleVeRastgeleDiziOlustur($planets, 5));

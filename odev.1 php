@@ -1,0 +1,24 @@
+<?php
+function ucgen($satirSayisi)
+{
+    $i = 1; // while döngüsü için sayaç
+
+    while ($i <= $satirSayisi) {
+        // Her satır için for döngüsü ile "O" karakterlerini bas
+        for ($j = 1; $j <= $i; $j++) {
+            echo "O ";
+        }
+        echo "\n"; // Satır sonuna gelince bir alt satıra geç
+        $i++; // sayaç arttır
+    }
+}
+
+// Örnek kullanım
+ucgen(15);
+?>
+
+
+Çalışma Açıklaması:
+while döngüsü, satır sayısını kontrol etmek için kullanılıyor.
+for döngüsü ise her satırda kaç adet O karakteri yazılacağını belirliyor.
+echo "\n"; ile her satırın sonunda yeni satıra geçiliyor.

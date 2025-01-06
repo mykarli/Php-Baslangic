@@ -17,6 +17,24 @@ function ucgen($satirSayisi)
 ucgen(15);
 ?>
 
+O 
+O O 
+O O O 
+O O O O 
+O O O O O 
+O O O O O O 
+O O O O O O O 
+O O O O O O O O 
+O O O O O O O O O 
+O O O O O O O O O O 
+O O O O O O O O O O O 
+O O O O O O O O O O O O 
+O O O O O O O O O O O O O 
+O O O O O O O O O O O O O O 
+O O O O O O O O O O O O O O O 
+
+
+
 
 Çalışma Açıklaması:
 while döngüsü, satır sayısını kontrol etmek için kullanılıyor.

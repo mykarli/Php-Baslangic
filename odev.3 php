@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayı Kontrol Formu</title>
+</head>
+<body>
+    <h2>Sayı Kontrol Formu</h2>
+    <form method="POST" action="">
+        <label for="number">Bir sayı girin:</label>
+        <input type="number" id="number" name="number">
+        <button type="submit">Gönder</button>
+    </form>
+
+    <?php
+    function checkDivisibilityByThree($number) {
+        if ($number % 3 == 0) {
+            return "Girdiğiniz sayı $number 3'e tam bölünebilir.";
+        } else {
+            $nextDivisible = $number + (3 - ($number % 3));
+            return "Girdiğiniz sayı $number 3'e bölünemez. 3'e bölünebilecek ilk sayı $nextDivisible'dır.";
+        }
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $number = $_POST['number'];
+
+        if (empty($number) && $number !== '0') {
+            echo "<p style='color: red;'>Lütfen boş değer göndermeyin!</p>";
+        } else {
+            echo "<p>" . checkDivisibilityByThree((int)$number) . "</p>";
+        }
+    }
+    ?>
+</body>
+</html>
+
+
+
+
+Aşağıda, belirtilen gereksinimlere uygun bir PHP formu ve kontrol işlemleri yapılmıştır:
+
+php
+Kodu kopyala
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayı Kontrol Formu</title>
+</head>
+<body>
+    <h2>Sayı Kontrol Formu</h2>
+    <form method="POST" action="">
+        <label for="number">Bir sayı girin:</label>
+        <input type="number" id="number" name="number">
+        <button type="submit">Gönder</button>
+    </form>
+
+    <?php
+    function checkDivisibilityByThree($number) {
+        if ($number % 3 == 0) {
+            return "Girdiğiniz sayı $number 3'e tam bölünebilir.";
+        } else {
+            $nextDivisible = $number + (3 - ($number % 3));
+            return "Girdiğiniz sayı $number 3'e bölünemez. 3'e bölünebilecek ilk sayı $nextDivisible'dır.";
+        }
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $number = $_POST['number'];
+
+        if (empty($number) && $number !== '0') {
+            echo "<p style='color: red;'>Lütfen boş değer göndermeyin!</p>";
+        } else {
+            echo "<p>" . checkDivisibilityByThree((int)$number) . "</p>";
+        }
+    }
+    ?>
+</body>
+</html>
+
+
+
+Kodun Açıklaması:
+form etiketi ile kullanıcıdan sayı alınır.
+$_POST['number'] ile formdan gönderilen sayı alınır.
+checkDivisibilityByThree fonksiyonu sayının 3’e bölünebilir olup olmadığını kontrol eder.
+Eğer sayı 3'e bölünebiliyorsa mesaj döndürülür.
+Bölünemiyorsa, 3’e bölünebilecek ilk sayı hesaplanır.
+Sayı boşsa kullanıcıya uyarı mesajı gösterilir.
